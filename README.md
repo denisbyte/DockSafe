@@ -1,2 +1,2 @@
 # DockSafe
-Script Python automatisant le téléchargement d'une image depuis le Docker , fais le scan de vulnérabilité avec Trivy et ensuite valide ce dernier 
+Script Python automatisant le téléchargement d'une image depuis le Docker Hub, fais le scan de vulnérabilité avec Trivy et ensuite valide ce dernier 
