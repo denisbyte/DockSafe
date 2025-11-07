@@ -18,12 +18,12 @@ def docker_login(username = None, password = None):
 
 def pull_image(image_name):
     logging.info(f"Télechargement de l'image {image_name} depuis Docker Hub")
-    #Téléchargement de l'image avec client Docker
-    image = client.images.pull(image_name)
+    #Téléchargement de l'image avec client Docker avec flux d'evenements
+    for line in client.api.pull(image_name, stream=True, decode=True):
+        if"status" in line:
+            print(line["status"])
+
 
     #Affichage des informations de tag de l'image téléchargé
-    logging.info(f"Télechargement terminé :{image.tags}")
+    logging.info(f"Télechargement terminé :{image_name}")
     
-    return image
-
-
